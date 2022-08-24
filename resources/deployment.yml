@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: ultron
-          image: demoapp
+          image: ultron:
           ports:
             - containerPort: 80
