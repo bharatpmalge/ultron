@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: ultron
-          image: demoapp:${{ env.IMAGE_TAG }}
+          image: demoapp
           ports:
             - containerPort: 80
