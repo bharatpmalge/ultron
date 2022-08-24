@@ -46,11 +46,11 @@ jobs:
           severity: 'CRITICAL,HIGH'
     - uses: cschleiden/replace-tokens@v1
       with:
-        files: '["kubernetes/*.yaml"]'
+        files: '["resources/*.yaml"]'
         tokenPrefix: __ # optional, default is #{
         tokenSuffix: __ # optional, default is }#
       env:
-        DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
+        DOCKER_REPOSITORY: docker.io/bluecipherpub/
         IMAGE_NAME: ultron
         IMAGE_TAG: ${{ env.IMAGE_TAG }}
         

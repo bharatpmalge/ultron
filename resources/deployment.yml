@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ultron
+  namespace: ultron
+  labels:
+    app: ultron
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ultron
+  template:
+    metadata:
+      labels:
+        app: ultron
+    spec:
+      containers:
+        - name: ultron
+          image: demoapp:${{ env.IMAGE_TAG }}
+          ports:
+            - containerPort: 80
