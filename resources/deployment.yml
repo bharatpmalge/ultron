@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: ultron
-          image: ultron:
+          image: ultron:12
           ports:
             - containerPort: 80
