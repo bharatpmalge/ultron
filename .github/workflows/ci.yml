@@ -66,7 +66,7 @@ jobs:
     - name: Find and Replace
       uses: jacobtomlinson/gha-find-replace@v2
       with:
-          find: ${{ env.IMAGE_TAG }}
-          replace: "${{ env.IMAGE_TAG }}"
+          find: ultron:
+          replace: "ultron:${{ env.IMAGE_TAG }}"
           regex: true
           include : "../resources/**"
