@@ -64,7 +64,7 @@ jobs:
         docker push docker.io/bluecipherpub/ultron:${{ env.IMAGE_TAG }}
 
     - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
+      uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: ${{ env.IMAGE_TAG }}
           replace: "${{ env.IMAGE_TAG }}"
