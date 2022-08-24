@@ -18,5 +18,7 @@ spec:
       containers:
         - name: ultron
           image: bluecipherpub/ultron:12
+          imagePullSecrets:
+          - name: docker-hub-hackathon2022
           ports:
             - containerPort: 80
