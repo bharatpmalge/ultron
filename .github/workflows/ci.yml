@@ -70,3 +70,9 @@ jobs:
           replace: "ultron:${{ env.IMAGE_TAG }}"
           regex: true
           include : "../resources/**"
+          
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+          github_token: ${{ secrets.MY_PAT }}
+          branch: ${{ github.ref }}
