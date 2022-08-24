@@ -44,16 +44,6 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'library'
           severity: 'CRITICAL,HIGH'
-    - uses: cschleiden/replace-tokens@v1
-      with:
-        files: '["resources/*.yaml"]'
-        tokenPrefix: __ # optional, default is #{
-        tokenSuffix: __ # optional, default is }#
-      env:
-        DOCKER_REPOSITORY: docker.io/bluecipherpub/
-        IMAGE_NAME: ultron
-        IMAGE_TAG: ${{ env.IMAGE_TAG }}
-
 
     - name: Login to Docker Hub
       run: |
@@ -69,7 +59,7 @@ jobs:
           find: "ultron:" 
           replace: "ultron:${{ env.IMAGE_TAG }}"
           regex: true
-          include : "../resources/**"
+          include : "deploymeny.yml"
           
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
