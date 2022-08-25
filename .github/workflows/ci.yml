@@ -35,11 +35,13 @@ jobs:
     - run: pwd
     - run: ls -lrt
     - run: cat resources.txt
-    - run: git status
-    - run: git add resources.txt
-    - run: git commit -m 'txt update'
-    - run: git push origin main
-
+   # - run: git status
+    #- run: git add resources.txt
+    #- run: git commit -m 'txt update'
+   # - run: git push origin main
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes
 
     - name: Build Docker Image
       run:
