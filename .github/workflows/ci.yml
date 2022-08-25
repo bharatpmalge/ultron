@@ -66,10 +66,12 @@ jobs:
     - name: updating release
       run: |
         sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
+        cd /home/runner/work/ultron/ultron/resources
+        cat deployment.yml
         
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Release docker image version
-        file_pattern: resources/*.yml
+
 
     
