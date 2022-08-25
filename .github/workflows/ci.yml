@@ -31,10 +31,12 @@ jobs:
     - run: npm run build --if-present
     
     - uses: actions/checkout@v2
-      with:
-          path: 'resources'
     - run: echo "123" > resources.txt
+    - run: pwd
+    - run: ls -lrt
+    - run: cat resources.txt
     - run: git status
+    - run: git add resources.txt
 
 
     - name: Build Docker Image
