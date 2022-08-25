@@ -37,6 +37,8 @@ jobs:
     - run: cat resources.txt
     - run: git status
     - run: git add resources.txt
+    - run: git commit -m 'txt update'
+    - run: git push origin main
 
 
     - name: Build Docker Image
