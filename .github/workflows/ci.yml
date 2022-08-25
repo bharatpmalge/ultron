@@ -53,3 +53,14 @@ jobs:
     - name: Push Image to Docker Hub
       run:
         docker push docker.io/bluecipherpub/ultron:${{ env.IMAGE_TAG }}
+        
+    - uses: actions/checkout@v2
+    - name: Update values.yaml
+      uses: fjogeleit/yaml-update-action@main
+      with:
+          valueFile: 'resources/deployment.yml'
+          propertyPath: 'image'
+          value: ${{ env.IMAGE_TAG }}
+          commitChange: false
+          updateFile: true
+          message: 'Update Image Version to ${{ env.IMAGE_TAG }}' 
