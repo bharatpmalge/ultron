@@ -61,6 +61,6 @@ jobs:
           valueFile: 'resources/deployment.yml'
           propertyPath: 'image'
           value: ${{ env.IMAGE_TAG }}
-          commitChange: false
+          commitChange: true
           updateFile: true
           message: 'Update Image Version to ${{ env.IMAGE_TAG }}' 
