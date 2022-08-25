@@ -59,6 +59,8 @@ jobs:
         echo 'releasing docker image'
         ls -a
         sed -e "s, APPIMAGE, '${{ env.IMAGE_TAG }}',g" resources/deployment.yml
+        git status
+      
           
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
