@@ -21,16 +21,7 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - run: |
-        sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
-        cd /home/runner/work/ultron/ultron/resources
-        cat deployment.yml
-        
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Release docker image version
-        
+   
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -40,7 +31,16 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     
-    
+    - uses: actions/checkout@v2
+    - run: |
+        sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
+        cd /home/runner/work/ultron/ultron/resources
+        cat deployment.yml
+        
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Release docker image version
+         
  #   - uses: actions/checkout@v2
   #  - run: echo "123" > resources.txt
   #  - run: pwd
