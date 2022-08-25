@@ -1,17 +1,18 @@
-apiVersion: v1
-kind: Service
+kind: Service 
+apiVersion: v1 
 metadata:
   name: ultronsvc
   namespace: ultron
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: ultronsvc
+
   ports:
-    - name: http
-      protocol: TCP
+    # Three types of ports for a service
+    # nodePort - a static port assigned on each the node
+    # port - port exposed internally in the cluster
+    # targetPort - the container port to send requests to
+    - nodePort: 30163
       port: 80
-      targetPort: 9376
-    - name: https
-      protocol: TCP
-      port: 443
-      targetPort: 9377
+      targetPort: 80
