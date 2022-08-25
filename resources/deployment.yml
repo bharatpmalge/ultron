@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ultron
-          image: bluecipherpub/ultron:12
+          image: bluecipherpub/ultron:18
           ports:
             - containerPort: 80
       imagePullSecrets:
