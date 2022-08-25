@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ultron
-          image: docker.io/bluecipherpub/ultron:31
+          image: APPIMAGE
           ports:
             - containerPort: 80
       imagePullSecrets:
