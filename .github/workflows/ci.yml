@@ -22,7 +22,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: updating release
     - run: |
         sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
         cd /home/runner/work/ultron/ultron/resources
