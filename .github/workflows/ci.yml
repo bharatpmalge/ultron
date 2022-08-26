@@ -30,26 +30,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    
-    - uses: actions/checkout@v2
-    - run: |
-        sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
-        cd /home/runner/work/ultron/ultron/resources
-        cat deployment.yml
-        
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Release docker image version
-         
- #   - uses: actions/checkout@v2
-  #  - run: echo "123" > resources.txt
-  #  - run: pwd
-   # - run: ls -lrt
-   # - run: cat resources.txt
-   # - run: git status
-    #- run: git add resources.txt
-    #- run: git commit -m 'txt update'
-   # - run: git push origin main
    
 
     - name: Build Docker Image
@@ -74,17 +54,7 @@ jobs:
     - name: Push Image to Docker Hub
       run:
         docker push docker.io/bluecipherpub/ultron:${{ env.IMAGE_TAG }}
-    
-    - name: updating release
-    - uses: actions/checkout@v2
-    - run: |
-        sed -e "s, APPIMAGE, 'docker.io/bluecipherpub/ultron/${{ env.IMAGE_TAG }}',g" resources/deployment.yml
-        cd /home/runner/work/ultron/ultron/resources
-        cat deployment.yml
-        
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Release docker image version
+  
 
 
     
